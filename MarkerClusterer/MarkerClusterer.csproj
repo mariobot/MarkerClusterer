@@ -152,6 +152,10 @@
     <Compile Include="Migrations\201812131609415_update items.Designer.cs">
       <DependentUpon>201812131609415_update items.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812131943536_Add ParentId.cs" />
+    <Compile Include="Migrations\201812131943536_Add ParentId.Designer.cs">
+      <DependentUpon>201812131943536_Add ParentId.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DatabaseContext.cs" />
     <Compile Include="Models\Item.cs" />
@@ -172,7 +176,6 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\GoogleMaps.cshtml" />
-    <Content Include="Views\Items\_Google.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -186,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812131609415_update items.resx">
       <DependentUpon>201812131609415_update items.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812131943536_Add ParentId.resx">
+      <DependentUpon>201812131943536_Add ParentId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

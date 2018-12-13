@@ -26,3 +26,4 @@ C:\Users\mabotero\source\repos\MarkerClusterer\MarkerClusterer\obj\Debug\MarkerC
 C:\Users\mabotero\source\repos\MarkerClusterer\MarkerClusterer\obj\Debug\MarkerClusterer.Migrations.updatevalues.resources
 C:\Users\mabotero\source\repos\MarkerClusterer\MarkerClusterer\obj\Debug\MarkerClusterer.csproj.GenerateResource.cache
 C:\Users\mabotero\source\repos\MarkerClusterer\MarkerClusterer\obj\Debug\MarkerClusterer.Migrations.updateitems.resources
+C:\Users\mabotero\source\repos\MarkerClusterer\MarkerClusterer\obj\Debug\MarkerClusterer.Migrations.AddParentId.resources

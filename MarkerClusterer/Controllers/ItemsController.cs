@@ -39,6 +39,8 @@ namespace MarkerClusterer.Controllers
         // GET: Items/Create
         public ActionResult Create()
         {
+            ViewBag.Parents = new SelectList(db.Items.ToList(), "Id", "Name");
+
             return View();
         }
 
@@ -47,7 +49,7 @@ namespace MarkerClusterer.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "id,Name,Nodo,Latitude,Longitude")] Item item)
+        public async Task<ActionResult> Create([Bind(Include = "id,Name,Nodo,Latitude,Longitude,ParentId")] Item item)
         {
             if (ModelState.IsValid)
             {
@@ -55,6 +57,8 @@ namespace MarkerClusterer.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
+
+            ViewBag.Parents = new SelectList(db.Items.ToList(), "Id", "Name", item.ParentId);
 
             return View(item);
         }
@@ -67,6 +71,7 @@ namespace MarkerClusterer.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Item item = await db.Items.FindAsync(id);
+            ViewBag.Parents = new SelectList(db.Items.ToList(), "Id", "Name", item.ParentId);
             if (item == null)
             {
                 return HttpNotFound();
@@ -79,7 +84,7 @@ namespace MarkerClusterer.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "id,Name,Nodo,Latitude,Longitude")] Item item)
+        public async Task<ActionResult> Edit([Bind(Include = "id,Name,Nodo,Latitude,Longitude,ParentId")] Item item)
         {
             if (ModelState.IsValid)
             {
@@ -87,6 +92,7 @@ namespace MarkerClusterer.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
+            ViewBag.Parents = new SelectList(db.Items.ToList(), "Id", "Name", item.ParentId);
             return View(item);
         }
 

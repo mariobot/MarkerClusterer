@@ -4,25 +4,14 @@
     ViewBag.Title = "Create";
 }
 
-
-<div class="row">
-    <div class="col-lg-12">
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-
-       
-    </div>
-</div>
-
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
+        <br />
+        <br />
+        <br />
         <h4>Crear Item   @Html.ActionLink("Back to List", "Index")</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -43,9 +32,17 @@
         </div>
 
         <div class="form-group">
+            <label class="control-label col-md-2">Item Parent</label>
+            <div class="col-lg-10">
+                @Html.DropDownListFor(x => x.ParentId, (SelectList)ViewBag.Parents, htmlAttributes: new { @class = "form-control" })                
+                @Html.ValidationMessageFor(model => model.Nodo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
             @Html.LabelFor(model => model.Latitude, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Latitude, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Latitude, new { htmlAttributes = new { @class = "form-control", @id = "lat" } })
                 @Html.ValidationMessageFor(model => model.Latitude, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -53,7 +50,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Longitude, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Longitude, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Longitude, new { htmlAttributes = new { @class = "form-control", @id = "lng" } })
                 @Html.ValidationMessageFor(model => model.Longitude, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -61,38 +58,43 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
-                <div id="map" style="width:400px;height:400px">hola mundo</div>
+                
             </div>
         </div>
     </div>
 }
 
-@Html.Partial("_Google")
-<style>
-    /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-    #ggmap {
-        height: 100%;
-    }
-</style>
+<div class="row">
+    <div class="col-lg-12">
+        <div id="map" style="width:100%;height:600px">hola mundo</div>
+
+
+    </div>
+</div>
+
+
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCObbBpnMALUeTO-BFhVm5w64F7hm8g6e4&?sensor=false&callback=initMap" async defer></script>
 
-
 <script>
-    var map;      
+    var map;
     function initMap() {
-        console.log("Init Map");
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
+        var mapDiv = document.getElementById('map');
+        map = new google.maps.Map(mapDiv, {
+            center: { lat: 4.729385077860802, lng: -74.08523554880912 },
           zoom: 8
         });
-      }
+
+        map.addListener('click', function (e) {
+            //window.alert(e.latLng);
+            console.log("Coordenadas Seleccionadas" + e.latLng);
+            document.getElementById("lat").value = e.latLng.lat();
+            document.getElementById("lng").value = e.latLng.lng();
+        });
+
+    }
 </script>
 
-
-
-
-@*<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>*@
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

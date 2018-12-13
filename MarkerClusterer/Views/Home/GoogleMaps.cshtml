@@ -1,4 +1,6 @@
 ﻿
+@model List<MarkerClusterer.Models.Item>
+
 @{
     ViewBag.Title = "GoogleMaps";
     Layout = null;
@@ -21,10 +23,37 @@
     <script>
       var map;
       function initMap() {
+          
+          var locations = @Html.Raw(Json.Encode(Model));
+
+          console.log(locations);          
+          console.log(locations[0].Name)
+
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8
+            center: {lat: 4.729385077860802, lng: -74.08523554880912 },
+            zoom: 7
         });
+
+        var nodescolor = [
+            'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png',
+            'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+            'http://maps.google.com/mapfiles/ms/icons/purple-dot.png',
+            'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
+            'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'        
+        ];
+
+        //var coords = results.features[i].geometry.coordinates;
+        //var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+
+        for (var i = 0; i < locations.length; i++) {
+            var latLng = new google.maps.LatLng(locations[i].Latitude , locations[i].Longitude);
+            var marker = new google.maps.Marker({
+                position: latLng,
+                map: map,
+                label: locations[i].Name,
+                icon: nodescolor[locations[i].Nodo]
+            });
+        }
       }
     </script>
 </body>
