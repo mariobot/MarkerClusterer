@@ -42,6 +42,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -84,7 +90,32 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Database.mdf" />
+    <Content Include="App_Data\Database_log.ldf">
+      <DependentUpon>Database.mdf</DependentUpon>
+    </Content>
     <Content Include="Global.asax" />
+    <Content Include="markerclusterer\docs\examples.html" />
+    <Content Include="markerclusterer\docs\reference.html" />
+    <Content Include="markerclusterer\examples\advanced_example.html" />
+    <Content Include="markerclusterer\examples\simple_example.html" />
+    <Content Include="markerclusterer\examples\speed_test.js" />
+    <Content Include="markerclusterer\examples\speed_test_example.html" />
+    <Content Include="markerclusterer\images\conv30.png" />
+    <Content Include="markerclusterer\images\conv40.png" />
+    <Content Include="markerclusterer\images\conv50.png" />
+    <Content Include="markerclusterer\images\heart30.png" />
+    <Content Include="markerclusterer\images\heart40.png" />
+    <Content Include="markerclusterer\images\heart50.png" />
+    <Content Include="markerclusterer\images\m1.png" />
+    <Content Include="markerclusterer\images\m2.png" />
+    <Content Include="markerclusterer\images\m3.png" />
+    <Content Include="markerclusterer\images\m4.png" />
+    <Content Include="markerclusterer\images\m5.png" />
+    <Content Include="markerclusterer\images\people35.png" />
+    <Content Include="markerclusterer\images\people45.png" />
+    <Content Include="markerclusterer\images\people55.png" />
+    <Content Include="markerclusterer\src\markerclusterer.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -92,10 +123,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Item.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
+    <Content Include="markerclusterer\README.md" />
+    <Content Include="markerclusterer\src\data.json" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -105,9 +139,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
