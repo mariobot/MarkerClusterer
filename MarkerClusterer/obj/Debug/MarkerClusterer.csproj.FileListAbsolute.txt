@@ -23,3 +23,6 @@ C:\Users\mabotero\source\repos\MarkerClusterer\MarkerClusterer\obj\Debug\MarkerC
 C:\Users\mabotero\source\repos\MarkerClusterer\MarkerClusterer\obj\Debug\MarkerClusterer.csproj.CopyComplete
 C:\Users\mabotero\source\repos\MarkerClusterer\MarkerClusterer\obj\Debug\MarkerClusterer.dll
 C:\Users\mabotero\source\repos\MarkerClusterer\MarkerClusterer\obj\Debug\MarkerClusterer.pdb
+C:\Users\mabotero\source\repos\MarkerClusterer\MarkerClusterer\obj\Debug\MarkerClusterer.Migrations.updatevalues.resources
+C:\Users\mabotero\source\repos\MarkerClusterer\MarkerClusterer\obj\Debug\MarkerClusterer.csproj.GenerateResource.cache
+C:\Users\mabotero\source\repos\MarkerClusterer\MarkerClusterer\obj\Debug\MarkerClusterer.Migrations.updateitems.resources
