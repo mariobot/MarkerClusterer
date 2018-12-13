@@ -17,11 +17,12 @@ namespace MarkerClusterer.Controllers
             return View();
         }
 
-        public ActionResult GoogleMaps() {
+        public ActionResult GoogleMaps(int? id) {
 
             List<Item> Locations =  db.Items.ToList();
 
-            ViewBag.Locations = @"{'name': 'Mario','p' : '' }";
+            if (id != null)            
+                Locations = Locations.Where(x => x.ParentId == id).ToList();            
 
             return View(Locations);
         }
