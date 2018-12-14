@@ -18,6 +18,10 @@ namespace MarkerClusterer.Models
 
         public bool selected { get; set; }
 
+        public string Nodo { get; set; }
+
+        public string Text { get; set; }
+
         public ICollection<Menu> Childrens { get; set; }
     }
 }

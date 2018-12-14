@@ -1,5 +1,5 @@
 ﻿@using MarkerClusterer.Helpers
-@model List<MarkerClusterer.Models.Item>
+@model List<MarkerClusterer.Models.Menu>
 
 @{
     ViewBag.Title = "Menu";
@@ -11,14 +11,14 @@
     <div class="col-lg-12">
 
         @(Html.TreeView(Model)
-                .EmptyContent("No locations have been defined yet!")                
-                //.Children(m => m. )
+                .EmptyContent("No locations have been defined yet!")
+                .Children(m => m.Childrens)
                 .HtmlAttributes(new { id = "tree" })
                 .ChildrenHtmlAttributes(new { @class = "subItem" })
-                .ItemText(m => m.Name)
+                .ItemText(m => m.Text)
                 .ItemTemplate(
                     @<text>
-                        <a href="#@item.id">@item.Name</a>
+                        <a href="#@item.url">@item.Text</a>
                     </text>)
         )
     </div>
