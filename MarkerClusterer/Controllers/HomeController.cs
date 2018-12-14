@@ -26,5 +26,12 @@ namespace MarkerClusterer.Controllers
 
             return View(Locations);
         }
+
+        public ActionResult Menu() {
+
+            List<Item> Locations = db.Items.ToList();
+
+            return View(Locations);
+        }
     }
 }
