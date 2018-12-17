@@ -116,10 +116,18 @@ namespace MarkerClusterer.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Item item = await db.Items.FindAsync(id);
-            db.Items.Remove(item);
-            await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+            if (db.Items.Where(x => x.ParentId == id).Count() == 0)
+            {
+                Item item = await db.Items.FindAsync(id);
+                db.Items.Remove(item);
+                await db.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                TempData["Error"] = "This item have childrens items and can not errase";
+                return RedirectToAction("Delete", new { id = id});
+            }
         }
 
         protected override void Dispose(bool disposing)

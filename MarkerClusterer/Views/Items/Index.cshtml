@@ -1,15 +1,13 @@
 ﻿@model IEnumerable<MarkerClusterer.Models.Item>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "List Items";
 }
 
-<h2>Index</h2>
-
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a class="btn" href="@Url.Action("Create","Items")">Create Item</a>    
 </p>
-<table class="table">
+<table class="table table-responsive table-bordered table-striped">
     <tr>
         <th>
             Id

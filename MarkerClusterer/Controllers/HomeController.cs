@@ -9,27 +9,16 @@ namespace MarkerClusterer.Controllers
 {
     public class HomeController : Controller
     {
-        DatabaseContext db = new DatabaseContext();
-        
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        public ActionResult GoogleMaps(int? id) {
-
-            List<Item> Locations =  db.Items.ToList();
-
-            if (id != null)            
-                Locations = Locations.Where(x => x.ParentId == id).ToList();            
-
-            return View(Locations);
-        }
+        DatabaseContext db = new DatabaseContext();        
 
         public ActionResult Navigation(int? id)
         {
+            List<Item> Locations = db.Items.ToList();
+            if (id != null)
+                Locations = Locations.Where(x => x.ParentId == id).ToList();
+
             VMNavigation _vm = new VMNavigation() {
-                Locations = db.Items.Where(x => x.ParentId == id).ToList(),
+                Locations = Locations,
                 MyMenu = BuildMenu(id)
             };
 
@@ -97,6 +86,17 @@ namespace MarkerClusterer.Controllers
                 Nodo = root.Nodo.ToString(),
                 Text = root.Name,
             };
+        }
+
+        public ActionResult GoogleMaps(int? id)
+        {
+
+            List<Item> Locations = db.Items.ToList();
+
+            if (id != null)
+                Locations = Locations.Where(x => x.ParentId == id).ToList();
+
+            return View(Locations);
         }
     }
 }

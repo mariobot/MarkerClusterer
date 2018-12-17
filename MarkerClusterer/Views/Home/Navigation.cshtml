@@ -18,7 +18,7 @@
                     @{ var sel = "";}
                     @if (item.selected)
                             {
-                                sel = "btn";
+                                sel = "btn btn-danger";
                             }
                     <a class="@sel" href="@Url.Action("Navigation","Home",new { id = item.idItem })">@item.Text</a>
                 </text>)
@@ -65,8 +65,7 @@
                     map: map,
                     label: locations[i].Name,
                     icon: nodescolor[locations[i].Nodo],
-                    //url: "/Home/Navigation?id=" + locations[i].id
-                    url: locations[i].id
+                    url: "/Home/Navigation?id=" + locations[i].id                    
                 });
                 (function (marker) {
                     google.maps.event.addListener(marker, "click", function (e) {
@@ -76,19 +75,14 @@
                 // Add locations to center map
                 loc = new google.maps.LatLng(latLng.lat(),latLng.lng());                
                 bounds.extend(loc);            
-            }            
+            }
+        //Center map and adjust Zoom based on the position of all markers.
+        map.setCenter(bounds.getCenter());
+        map.fitBounds(bounds);        
         }
         else{
             console.log("No items in the model");
         }
-
-        google.maps.event.addListener(marker, 'click', function() {            
-            alert(this.url);
-        });
-
-        //Center map and adjust Zoom based on the position of all markers.
-        map.setCenter(bounds.getCenter());
-        map.fitBounds(bounds);
 
      }// End initMap()
 </script>

@@ -9,7 +9,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Crear Item   @Html.ActionLink("Back to List", "Index")</h4>
+        <h4>Create Item</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -21,7 +21,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Nodo, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Node", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EnumDropDownListFor(model => model.Nodo, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Nodo, "", new { @class = "text-danger" })
@@ -55,7 +55,7 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
-                
+                <a class="btn btn-danger" href="@Url.Action("Index","Items")">Back</a>
             </div>
         </div>
     </div>
