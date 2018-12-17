@@ -27,7 +27,13 @@ namespace MarkerClusterer.Controllers
             return View(Locations);
         }
 
-        public ActionResult Menu()
+        public ActionResult Menu(int? id)
+        {
+            List<Menu> MenuItems = BluidMenu(id);
+            return View(MenuItems);
+        }
+
+        private List<Menu> BluidMenu(int? id)
         {
             List<Item> Locations = db.Items.ToList();
             List<Menu> MenuItems = new List<Menu>();
@@ -37,19 +43,23 @@ namespace MarkerClusterer.Controllers
             {
                 if (root.ParentId == 0)
                 {
-                    m = AddMenuItem(root);
+                    m = AddMenuItem(root, id);
 
-                    foreach (var bloque in Locations.Where(x => x.ParentId == root.id)){
-                        Models.Menu menuBloque = AddMenuItem(bloque);
+                    foreach (var bloque in Locations.Where(x => x.ParentId == root.id))
+                    {
+                        Models.Menu menuBloque = AddMenuItem(bloque, id);
 
-                        foreach (var campo in Locations.Where(x => x.ParentId == bloque.id)){
-                            Models.Menu menuCampo = AddMenuItem(campo);
+                        foreach (var campo in Locations.Where(x => x.ParentId == bloque.id))
+                        {
+                            Models.Menu menuCampo = AddMenuItem(campo, id);
 
-                            foreach (var cluster in Locations.Where(x => x.ParentId == campo.id)){
-                                Models.Menu menuCluster = AddMenuItem(cluster);
+                            foreach (var cluster in Locations.Where(x => x.ParentId == campo.id))
+                            {
+                                Models.Menu menuCluster = AddMenuItem(cluster, id);
 
-                                foreach (var pozos in Locations.Where(x => x.ParentId == cluster.id)){
-                                    Models.Menu menuPozos = AddMenuItem(pozos);
+                                foreach (var pozos in Locations.Where(x => x.ParentId == cluster.id))
+                                {
+                                    Models.Menu menuPozos = AddMenuItem(pozos, id);
                                     menuCluster.Childrens.Add(menuPozos);
                                 }
                                 menuCampo.Childrens.Add(menuCluster);
@@ -61,15 +71,19 @@ namespace MarkerClusterer.Controllers
                     MenuItems.Add(m);
                 }
             }
-            return View(MenuItems);
+            return MenuItems;
         }
 
-        private static Menu AddMenuItem(Item root)
+        private static Menu AddMenuItem(Item root, int? id)
         {
+            bool _selected = false;
+            if (id == root.id)
+                _selected = true;
+
             return new Menu()
             {
                 idItem = root.id,
-                selected = false,
+                selected = _selected,
                 url = "Route/" + root.id,
                 Nodo = root.Nodo.ToString(),
                 Text = root.Name,
