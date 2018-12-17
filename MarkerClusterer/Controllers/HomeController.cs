@@ -16,11 +16,8 @@ namespace MarkerClusterer.Controllers
 
         public async Task<ActionResult> Navigation(int? id)
         {
-            List<Item> LocationsAll = db.Items.ToList();
-            List<Item> Locations = new List<Item>();
-            type _type = new type();
-            string url = string.Empty;
-            Item _locationSelected = new Item();
+            List<Item> LocationsAll = db.Items.ToList(); List<Item> Locations = new List<Item>();
+            type _type = new type(); string url = string.Empty; Item _locationSelected = new Item();
             List<Indicators> _indicators = new List<Indicators>();
 
             if (id != null) {

@@ -24,15 +24,13 @@ namespace MarkerClusterer.Controllers
         // GET: Items/Details/5
         public async Task<ActionResult> Details(int? id)
         {
-            if (id == null)
-            {
+            if (id == null)            
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            
             Item item = await db.Items.FindAsync(id);
-            if (item == null)
-            {
+            if (item == null)            
                 return HttpNotFound();
-            }
+            
             return View(item);
         }
 
@@ -63,25 +61,20 @@ namespace MarkerClusterer.Controllers
             return View(item);
         }
 
-        // GET: Items/Edit/5
+        
         public async Task<ActionResult> Edit(int? id)
         {
-            if (id == null)
-            {
+            if (id == null)            
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            
             Item item = await db.Items.FindAsync(id);
             ViewBag.Parents = new SelectList(db.Items.ToList(), "Id", "Name", item.ParentId);
-            if (item == null)
-            {
+            if (item == null)            
                 return HttpNotFound();
-            }
+            
             return View(item);
         }
 
-        // POST: Items/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "id,Name,Nodo,Latitude,Longitude,ParentId")] Item item)
@@ -99,19 +92,16 @@ namespace MarkerClusterer.Controllers
         // GET: Items/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
-            if (id == null)
-            {
+            if (id == null)            
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            
             Item item = await db.Items.FindAsync(id);
-            if (item == null)
-            {
+            if (item == null)            
                 return HttpNotFound();
-            }
+            
             return View(item);
         }
 
-        // POST: Items/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
@@ -132,10 +122,9 @@ namespace MarkerClusterer.Controllers
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing)
-            {
+            if (disposing)            
                 db.Dispose();
-            }
+            
             base.Dispose(disposing);
         }
     }
