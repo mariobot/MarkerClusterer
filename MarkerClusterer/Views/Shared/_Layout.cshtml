@@ -17,25 +17,29 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Marker Navegation", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Frontera Navigation", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="@Url.Action("Menu","Home")">MENU</a></li>
+                    <li><a href="@Url.Action("Navigation","Home")">NAVIGATION</a></li>
                     <li><a href="@Url.Action("Create","Items")">Adicionar Item</a></li>
                     <li><a href="@Url.Action("Index","Items")">Lista de Item</a></li>
                     <li><a href="@Url.Action("GoogleMaps","Home")">Google Maps</a></li>
+                    <li><a href="@Url.Action("Menu","Home")">MENU</a></li>
                 </ul>
             </div>
         </div>
     </div>
-        <div class="container body-content">
-            <div class="row">                
-                <div class="col-lg-12">
-                    @RenderBody()
-                </div>
+    <div class="container body-content">
+        <div class="row">
+            <div><br /><br /><br /></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                @RenderBody()
             </div>
         </div>
+    </div>
     <hr />
     <footer>
         <center>

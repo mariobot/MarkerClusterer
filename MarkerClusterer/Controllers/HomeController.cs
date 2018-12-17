@@ -10,8 +10,7 @@ namespace MarkerClusterer.Controllers
     public class HomeController : Controller
     {
         DatabaseContext db = new DatabaseContext();
-
-        // GET: Home
+        
         public ActionResult Index()
         {
             return View();
@@ -27,13 +26,23 @@ namespace MarkerClusterer.Controllers
             return View(Locations);
         }
 
+        public ActionResult Navigation(int? id)
+        {
+            VMNavigation _vm = new VMNavigation() {
+                Locations = db.Items.Where(x => x.ParentId == id).ToList(),
+                MyMenu = BuildMenu(id)
+            };
+
+            return View(_vm);
+        }
+
         public ActionResult Menu(int? id)
         {
-            List<Menu> MenuItems = BluidMenu(id);
+            List<Menu> MenuItems = BuildMenu(id);
             return View(MenuItems);
         }
 
-        private List<Menu> BluidMenu(int? id)
+        public List<Menu> BuildMenu(int? id)
         {
             List<Item> Locations = db.Items.ToList();
             List<Menu> MenuItems = new List<Menu>();
