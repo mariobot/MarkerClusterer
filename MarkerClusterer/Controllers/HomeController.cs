@@ -1,28 +1,59 @@
-﻿using System;
+﻿using MarkerClusterer.Models;
+using MarkerClusterer.Services;
+using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Web.Mvc;
-using System.Web;
-using MarkerClusterer.Models;
 
 namespace MarkerClusterer.Controllers
 {
     public class HomeController : Controller
     {
-        DatabaseContext db = new DatabaseContext();        
+        DatabaseContext db = new DatabaseContext();
+        PIWebAPIClient client = new PIWebAPIClient("mabotero", Encoding.UTF8.GetString(new byte[] { 76, 101, 110, 111, 118, 111, 50, 48, 49, 56 }));            
 
-        public ActionResult Navigation(int? id)
+        public async Task<ActionResult> Navigation(int? id)
         {
-            List<Item> Locations = db.Items.ToList();
-            if (id != null)
-                Locations = Locations.Where(x => x.ParentId == id).ToList();
+            List<Item> LocationsAll = db.Items.ToList();
+            List<Item> Locations = new List<Item>();
+            type _type = new type();
+            string url = string.Empty;
+            Item _locationSelected = new Item();
+            List<Indicators> _indicators = new List<Indicators>();
+
+            if (id != null) {
+                Locations = LocationsAll.Where(x => x.ParentId == id).ToList();
+                _type = LocationsAll.Where(x => x.id == id).Select(x => x.Nodo).FirstOrDefault();
+                url = PIWebAPIClient.RequestDirectory(_type.ToString());
+                JObject data = await client.GetAsync(url);
+                _indicators = CastData(data);
+                _locationSelected = LocationsAll.Where(x => x.id == id).FirstOrDefault();
+            }
 
             VMNavigation _vm = new VMNavigation() {
                 Locations = Locations,
-                MyMenu = BuildMenu(id)
+                MyMenu = BuildMenu(id),
+                IndicatorsValues = _indicators,
+                LocationSelected = _locationSelected
             };
 
             return View(_vm);
+        }
+
+        public static List<Indicators> CastData(JObject _data)
+        {
+            List<Indicators> _indicators = new List<Indicators>(); 
+            foreach (var item in _data["Items"])
+            {
+                Indicators i = new Indicators() {
+                    NameIndicator = item["Name"].ToString(),
+                    Value = item["Value"]["Value"].ToString()
+                };
+                _indicators.Add(i);
+            }
+            return _indicators;
         }
 
         public ActionResult Menu(int? id)

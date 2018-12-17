@@ -27,3 +27,11 @@ C:\Users\mabotero\source\repos\MarkerClusterer\MarkerClusterer\obj\Debug\MarkerC
 C:\Users\mabotero\source\repos\MarkerClusterer\MarkerClusterer\obj\Debug\MarkerClusterer.dll
 C:\Users\mabotero\source\repos\MarkerClusterer\MarkerClusterer\obj\Debug\MarkerClusterer.pdb
 C:\Users\mabotero\source\repos\MarkerClusterer\MarkerClusterer\obj\Debug\MarkerClusterer.csprojAssemblyReference.cache
+C:\Users\mabotero\source\repos\MarkerClusterer\MarkerClusterer\bin\Newtonsoft.Json.dll
+C:\Users\mabotero\source\repos\MarkerClusterer\MarkerClusterer\bin\System.Net.Http.dll
+C:\Users\mabotero\source\repos\MarkerClusterer\MarkerClusterer\bin\System.Security.Cryptography.Algorithms.dll
+C:\Users\mabotero\source\repos\MarkerClusterer\MarkerClusterer\bin\System.Security.Cryptography.Encoding.dll
+C:\Users\mabotero\source\repos\MarkerClusterer\MarkerClusterer\bin\System.Security.Cryptography.Primitives.dll
+C:\Users\mabotero\source\repos\MarkerClusterer\MarkerClusterer\bin\System.Security.Cryptography.X509Certificates.dll
+C:\Users\mabotero\source\repos\MarkerClusterer\MarkerClusterer\bin\Newtonsoft.Json.pdb
+C:\Users\mabotero\source\repos\MarkerClusterer\MarkerClusterer\bin\Newtonsoft.Json.xml
