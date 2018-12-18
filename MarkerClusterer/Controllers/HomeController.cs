@@ -118,7 +118,6 @@ namespace MarkerClusterer.Controllers
 
         public ActionResult GoogleMaps(int? id)
         {
-
             List<Item> Locations = db.Items.ToList();
 
             if (id != null)
