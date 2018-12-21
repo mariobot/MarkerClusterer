@@ -23,10 +23,19 @@ namespace MarkerClusterer.Controllers
             if (id != null) {
                 Locations = LocationsAll.Where(x => x.ParentId == id).ToList();
                 _type = LocationsAll.Where(x => x.id == id).Select(x => x.Nodo).FirstOrDefault();
-                url = PIWebAPIClient.RequestDirectory(_type.ToString());
-                JObject data = await client.GetAsync(url);
-                _indicators = CastData(data);
                 _locationSelected = LocationsAll.Where(x => x.id == id).FirstOrDefault();
+                url = PIWebAPIClient.RequestDirectory(_type.ToString());
+                try
+                {
+                    JObject data = await client.GetAsync(url);
+                    _indicators = CastData(data);
+                    _locationSelected = LocationsAll.Where(x => x.id == id).FirstOrDefault();
+                }
+                catch {
+                    JObject data = null;
+                    _indicators = CastData(data);
+                }
+                
             }
 
             VMNavigation _vm = new VMNavigation() {
@@ -41,15 +50,32 @@ namespace MarkerClusterer.Controllers
 
         public static List<Indicators> CastData(JObject _data)
         {
-            List<Indicators> _indicators = new List<Indicators>(); 
-            foreach (var item in _data["Items"])
+            List<Indicators> _indicators = new List<Indicators>();
+            if (_data != null)
             {
-                Indicators i = new Indicators() {
-                    NameIndicator = item["Name"].ToString(),
-                    Value = item["Value"]["Value"].ToString()
-                };
-                _indicators.Add(i);
+                foreach (var item in _data["Items"])
+                {
+                    Indicators i = new Indicators()
+                    {
+                        NameIndicator = item["Name"].ToString(),
+                        Value = item["Value"]["Value"].ToString()
+                    };
+                    _indicators.Add(i);
+                }
             }
+            else {
+
+                for (int i = 0; i < 5; i++)
+                {
+                    Indicators ind = new Indicators()
+                    {
+                        NameIndicator = "AF Server",
+                        Value = "Not Found"
+                    };
+                    _indicators.Add(ind);
+                }
+            }
+            
             return _indicators;
         }
 
