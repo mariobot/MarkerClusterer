@@ -1,4 +1,5 @@
-﻿using MarkerClusterer.Models;
+﻿using MarkerClusterer.Helpers;
+using MarkerClusterer.Models;
 using MarkerClusterer.Services;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
@@ -29,11 +30,13 @@ namespace MarkerClusterer.Controllers
                 {
                     JObject data = await client.GetAsync(url);
                     _indicators = CastData(data);
+                    Session["Indicators"] = _indicators;
                     _locationSelected = LocationsAll.Where(x => x.id == id).FirstOrDefault();
                 }
                 catch {
                     JObject data = null;
                     _indicators = CastData(data);
+                    Session["Indicators"] = _indicators;
                 }
                 
             }
@@ -150,6 +153,51 @@ namespace MarkerClusterer.Controllers
                 Locations = Locations.Where(x => x.ParentId == id).ToList();
 
             return View(Locations);
+        }
+
+        public void ExportToExcel() {
+
+            List<Indicators> _list = (List<Indicators>)Session["Indicators"];
+
+            Helpers.Excel.Export.ToExcel(Response, _list);
+        }
+
+        public ActionResult AllToast() {
+            this.AddToastMessage("MENSAJE DE ERROR", "Mensaje de error", ToastType.Error);
+            this.AddToastMessage("Mensaje Informativo", "Mensaje informativo", ToastType.Info);
+            this.AddToastMessage("Mensaje Exitoso", "Mensaje exitoso", ToastType.Success);
+            this.AddToastMessage("Mensaje de Advertencia", "Mensaje de Advertencia", ToastType.Warning);
+            return RedirectToAction("Navigation");
+        }
+        public ActionResult Error() {
+            this.AddToastMessage("MENSAJE DE ERROR", "Mensaje de error", ToastType.Error);
+            return RedirectToAction("Navigation");
+        }
+        public ActionResult Info() {
+            this.AddToastMessage("Mensaje Informativo", "Mensaje informativo", ToastType.Info);
+            return RedirectToAction("Navigation");
+        }
+        public ActionResult Success() {
+            this.AddToastMessage("Mensaje Exitoso", "Mensaje exitoso", ToastType.Success);
+            return RedirectToAction("Navigation");
+        }
+        public ActionResult Warning() {
+            this.AddToastMessage("Mensaje de Advertencia", "Mensaje de Advertencia", ToastType.Warning);
+            return RedirectToAction("Navigation");
+        }
+        
+    }
+
+    public static class ControllerExtensions
+    {
+        public static ToastMessage AddToastMessage(this Controller controller, string title, string message, ToastType toastType = ToastType.Info)
+        {
+            Toastr toastr = controller.TempData["Toastr"] as Toastr;
+            toastr = toastr ?? new Toastr();
+
+            var toastMessage = toastr.AddToastMessage(title, message, toastType);
+            controller.TempData["Toastr"] = toastr;
+            return toastMessage;
         }
     }
 }

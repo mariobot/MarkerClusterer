@@ -10,8 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.bundle.min.js"></script>
     <script>
 
-            var barChartData =
-                {
+            var barChartData = {
                     labels: ['Petroleo','Agua','Gas'],
                     datasets: [{
                         label: '',
@@ -61,7 +60,7 @@
                     labels: [
                         'Petroleo',
                         'Agua',
-                        'Gas'                        
+                        'Gas'
                     ]
                 },
                 options: {
@@ -69,10 +68,38 @@
                 }
             };
 
+            var line = {
+                type: 'line',
+                data: {
+                    labels: ['Ene', 'Feb', 'Mar', 'Abr'],
+                    datasets: [{
+                        label: 'Produccion',
+                        backgroundColor:[
+                           "#f990a7",
+                            "#aad2ed",
+                            "#9966FF"
+                        ],
+                        data: [
+                            1020,500,160,2555
+                        ],
+                        fill: true,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    title: {
+                        display: true,
+                        text: ''
+                    }
+                }
+            };
+
                 window.onload = function () {
                     var ctx1 = document.getElementById("barcanvas").getContext("2d");
                     var ctx2 = document.getElementById("piecanvas").getContext("2d");
+                    var ctx3 = document.getElementById("linecanvas").getContext("2d");
                     window.myPie = new Chart(ctx2, pie);
+                    window.myLine = new Chart(ctx3, line);
                     window.myBar = new Chart(ctx1,
                         {
                             type: 'bar',
@@ -94,10 +121,14 @@
 <body>
     <div style="text-align: center">
         <canvas id="barcanvas"></canvas>
+        <hr />
         <canvas id="piecanvas"></canvas>
+        <hr />
+        <canvas id="linecanvas"></canvas>
     </div>
     <div style="text-align: center">
-        Disclaimer:- La informacion suministrada aqui es de prueba
+        <hr />
+        Disclaimer: < La informacion suministrada aqui es de prueba >
     </div>
 </body>
 </html>  

@@ -37,9 +37,7 @@ namespace MarkerClusterer.Services
 
         public static string RequestDirectory(string type) {
 
-            Dictionary<string, string> RequestURL = new Dictionary<string, string>();
-
-        
+            Dictionary<string, string> RequestURL = new Dictionary<string, string>();        
 
             RequestURL.Add("Bloque", "https://maboterow7/piwebapi/streamsets/F1EmwoJtf9-ekUGM_8UYLFM6tAckdC0jAC6RGajuyoay9mEATUFCT1RFUk9XN1xGUk9OVEVSQVRFU1RcQkxPUVVF/value");
             RequestURL.Add("Campo", "https://maboterow7/piwebapi/streamsets/F1EmwoJtf9-ekUGM_8UYLFM6tAQVZ_3DMC6RGajuyoay9mEATUFCT1RFUk9XN1xGUk9OVEVSQVRFU1RcQ0FNUE8/value");

@@ -3,10 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Marker Navegation</title>
+    <title>Frontera Energy | Indicadores MIA</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <link href="~/Content/toastr.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/toastr.min.js"></script>
 </head>
 <body>
     <div class="navbar navbar-fixed-top navbar-default">
@@ -22,7 +25,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="@Url.Action("Navigation","Home")">Home</a></li>
-                    
+
                     <li role="presentation" class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                             Gestionar Nodos <span class="caret"></span>
@@ -34,7 +37,7 @@
                             <li><a href="@Url.Action("GoogleMaps","Home")">Nodos en Google Maps</a></li>
                         </ul>
                     </li>
-                    
+
                     <li role="presentation" class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                             Configuracion <span class="caret"></span>
@@ -45,6 +48,19 @@
                             <li><a>Gestion de Alarmas</a></li>
                             <li><a>Gestion de Usuarios</a></li>
                             <li><a>Gestion de Documentos</a></li>
+                        </ul>
+                    </li>
+
+                    <li role="presentation" class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            Notificaciones <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Notificacion de Error", "Error")</li>
+                            <li>@Html.ActionLink("Notificacion Exitosa", "Success")</li>
+                            <li>@Html.ActionLink("Notificacion de Informacion", "Info")</li>
+                            <li>@Html.ActionLink("Notificacion de Advertencia", "Warning")</li>
+                            <li>@Html.ActionLink("Todas las notificaciones", "AllToast")</li>
                         </ul>
                     </li>
                 </ul>
@@ -58,11 +74,12 @@
         <div class="row">
             @RenderBody()
         </div>
+        @Html.Partial("_Toastr")
     </div>
     <hr />
     <footer>
         <center>
-            <p>&copy; @DateTime.Now.Year - Developed by Mario Botero - <a href="http://about.me/mariobot" target="_blank">About Mario.</a></p>
+            <p>&copy; @DateTime.Now.Year - Developed by - <a href="https://www.indracompany.com/" target="_blank">Indra Company</a></p>
         </center>
     </footer>
 

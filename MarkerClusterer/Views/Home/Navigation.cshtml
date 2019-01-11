@@ -5,7 +5,6 @@
     ViewBag.Title = "Navigation";
 }
 
-
 <div class="row">
     <div class="col-lg-4">
         <div class="container">
@@ -39,20 +38,30 @@
                 <li class="active"><a data-toggle="tab" href="#general"><h6>GENERAL</h6></a></li>
                 <li><a data-toggle="tab" href="#kpi"><h6>KPI</h6></a></li>
             </ul>
-
-            <div class="tab-content">
-                <div id="general" class="tab-pane fade in active">
-                    <br />
-                    @foreach (var item in Model.IndicatorsValues)
-                    {
-                        <p>
-                            <span class="h6">@item.NameIndicator:</span>
-                            <span class="h4"><strong>@item.Value</strong></span>
-                        </p>
-                    }
+            <div class="tab-content">                
+                <div id="general" class="tab-pane fade in active">                    
+                    <div class="panel container-fluid">
+                        <div class="panel-body">
+                            @foreach (var item in Model.IndicatorsValues)
+                            {
+                                <p>
+                                    <span class="h6">@item.NameIndicator:</span>
+                                    <span class="h4"><strong>@item.Value</strong></span>
+                                </p>
+                            }
+                            @if (Model.IndicatorsValues.Count > 0)
+	                        {
+		                         @Html.ActionLink("Exportar a Excel", "ExportToExcel")
+	                        }
+                        </div>
+                    </div>
                 </div>
                 <div id="kpi" class="tab-pane fade">
-                    @Html.Partial("_chart")
+                    <div class="panel">
+                        <div class="panel-body">
+                            @Html.Partial("_chart")
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
