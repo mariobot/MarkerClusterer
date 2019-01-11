@@ -41,11 +41,11 @@ namespace MarkerClusterer.Services
 
         
 
-            RequestURL.Add("Bloque", "https://maboterow/piwebapi/streamsets/F1EmwoJtf9-ekUGM_8UYLFM6tAckdC0jAC6RGajuyoay9mEATUFCT1RFUk9XN1xGUk9OVEVSQVRFU1RcQkxPUVVF/value");
-            RequestURL.Add("Campo", "https://maboterow/piwebapi/streamsets/F1EmwoJtf9-ekUGM_8UYLFM6tAQVZ_3DMC6RGajuyoay9mEATUFCT1RFUk9XN1xGUk9OVEVSQVRFU1RcQ0FNUE8/value");
-            RequestURL.Add("Cluster", "https://maboterow/piwebapi/streamsets/F1EmwoJtf9-ekUGM_8UYLFM6tAZdTSZTQC6RGajuyoay9mEATUFCT1RFUk9XN1xGUk9OVEVSQVRFU1RcQ0xVU1RFUg/value");
-            RequestURL.Add("Compañia", "https://maboterow/piwebapi/streamsets/F1EmwoJtf9-ekUGM_8UYLFM6tAr684JzIC6RGajuyoay9mEATUFCT1RFUk9XN1xGUk9OVEVSQVRFU1RcQ09NUEHDkUlB/value");
-            RequestURL.Add("Pozos", "https://maboterow/piwebapi/streamsets/F1EmwoJtf9-ekUGM_8UYLFM6tA3TbQ1zQC6RGajuyoay9mEATUFCT1RFUk9XN1xGUk9OVEVSQVRFU1RcUE9aTw/value");
+            RequestURL.Add("Bloque", "https://maboterow7/piwebapi/streamsets/F1EmwoJtf9-ekUGM_8UYLFM6tAckdC0jAC6RGajuyoay9mEATUFCT1RFUk9XN1xGUk9OVEVSQVRFU1RcQkxPUVVF/value");
+            RequestURL.Add("Campo", "https://maboterow7/piwebapi/streamsets/F1EmwoJtf9-ekUGM_8UYLFM6tAQVZ_3DMC6RGajuyoay9mEATUFCT1RFUk9XN1xGUk9OVEVSQVRFU1RcQ0FNUE8/value");
+            RequestURL.Add("Cluster", "https://maboterow7/piwebapi/streamsets/F1EmwoJtf9-ekUGM_8UYLFM6tAZdTSZTQC6RGajuyoay9mEATUFCT1RFUk9XN1xGUk9OVEVSQVRFU1RcQ0xVU1RFUg/value");
+            RequestURL.Add("Compañia", "https://maboterow7/piwebapi/streamsets/F1EmwoJtf9-ekUGM_8UYLFM6tAr684JzIC6RGajuyoay9mEATUFCT1RFUk9XN1xGUk9OVEVSQVRFU1RcQ09NUEHDkUlB/value");
+            RequestURL.Add("Pozos", "https://maboterow7/piwebapi/streamsets/F1EmwoJtf9-ekUGM_8UYLFM6tA3TbQ1zQC6RGajuyoay9mEATUFCT1RFUk9XN1xGUk9OVEVSQVRFU1RcUE9aTw/value");
 
             string url = RequestURL.Where(x => x.Key == type).Select(x => x.Value).FirstOrDefault();
 

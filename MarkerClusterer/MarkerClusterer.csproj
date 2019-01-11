@@ -202,6 +202,7 @@
     <Content Include="Views\Home\Menu.cshtml" />
     <Content Include="Views\TreeView\Index.cshtml" />
     <Content Include="Views\Home\Navigation.cshtml" />
+    <Content Include="Views\Home\_chart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
