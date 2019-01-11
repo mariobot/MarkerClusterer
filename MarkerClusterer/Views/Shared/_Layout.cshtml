@@ -21,11 +21,32 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="@Url.Action("Navigation","Home")">MIA</a></li>
-                    <li><a href="@Url.Action("Create","Items")">Add Item</a></li>
-                    <li><a href="@Url.Action("Index","Items")">List Items</a></li>
-                    <li><a href="@Url.Action("GoogleMaps","Home")">Google Maps</a></li>
-                    <li><a href="@Url.Action("Menu","Home")">MENU</a></li>
+                    <li><a href="@Url.Action("Navigation","Home")">Home</a></li>
+                    
+                    <li role="presentation" class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            Gestionar Nodos <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("Create","Items")">Adicionar Nodo</a></li>
+                            <li><a href="@Url.Action("Index","Items")">Lista de Nodos</a></li>
+                            <li><a href="@Url.Action("Menu","Home")">Ver MENU</a></li>
+                            <li><a href="@Url.Action("GoogleMaps","Home")">Nodos en Google Maps</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li role="presentation" class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            Configuracion <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a>Gestion de Reportes</a></li>
+                            <li><a>Parametrizacion de Reportes</a></li>
+                            <li><a>Gestion de Alarmas</a></li>
+                            <li><a>Gestion de Usuarios</a></li>
+                            <li><a>Gestion de Documentos</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>

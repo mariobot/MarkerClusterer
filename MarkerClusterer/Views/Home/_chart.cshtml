@@ -12,9 +12,9 @@
 
             var barChartData =
                 {
-                    labels: ['label1','label2'],
+                    labels: ['Petroleo','Agua','Gas'],
                     datasets: [{
-                        label: 'ProductWise Sales Count',
+                        label: '',
                         backgroundColor: [
                             "#f990a7",
                             "#aad2ed",
@@ -22,13 +22,57 @@
                             "#99e5e5",
                             "#f7bd83",
                         ],
-                        borderWidth: 2,
-                        data: ['100','200']
+                        borderWidth: 1,
+                        data: [
+                        '100','200','210'
+                        ]
+                    },{
+                        label: '',
+                        backgroundColor: [
+                            "#f990a7",
+                            "#aad2ed",
+                            "#9966FF",
+                            "#99e5e5",
+                            "#f7bd83",
+                        ],
+                        borderWidth: 1,
+                        data: [
+                        '150', '190','250'
+                        ]
                     }]
                 };
 
+            var pie = {
+                type: 'pie',
+                data: {
+                    datasets: [{
+                        data: [
+                            '150',
+                            '250',
+                            '280'
+                        ],
+                        backgroundColor: [
+                           "#f990a7",
+                            "#aad2ed",
+                            "#9966FF"
+                        ],
+                        label: 'Produccion'
+                    }],
+                    labels: [
+                        'Petroleo',
+                        'Agua',
+                        'Gas'                        
+                    ]
+                },
+                options: {
+                    responsive: true
+                }
+            };
+
                 window.onload = function () {
                     var ctx1 = document.getElementById("barcanvas").getContext("2d");
+                    var ctx2 = document.getElementById("piecanvas").getContext("2d");
+                    window.myPie = new Chart(ctx2, pie);
                     window.myBar = new Chart(ctx1,
                         {
                             type: 'bar',
@@ -38,7 +82,7 @@
                                     title:
                                     {
                                         display: true,
-                                        text: "ProductWise Sales Count"
+                                        text: "Producciona Planeada"
                                     },
                                     responsive: true,
                                     maintainAspectRatio: true
@@ -50,10 +94,10 @@
 <body>
     <div style="text-align: center">
         <canvas id="barcanvas"></canvas>
+        <canvas id="piecanvas"></canvas>
     </div>
     <div style="text-align: center">
-        Disclaimer:- This data is for demo it is
-        not real data it wont relate to any company
+        Disclaimer:- La informacion suministrada aqui es de prueba
     </div>
 </body>
 </html>  

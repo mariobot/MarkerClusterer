@@ -35,13 +35,13 @@
     <div class="col-lg-3">
         <div class="">
             <h3>@Model.LocationSelected.Name</h3>
-            <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#home">Indicadores</a></li>
-                <li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
+            <ul class="nav nav-pills">
+                <li class="active"><a data-toggle="tab" href="#general"><h6>GENERAL</h6></a></li>
+                <li><a data-toggle="tab" href="#kpi"><h6>KPI</h6></a></li>
             </ul>
 
             <div class="tab-content">
-                <div id="home" class="tab-pane fade in active">
+                <div id="general" class="tab-pane fade in active">
                     <br />
                     @foreach (var item in Model.IndicatorsValues)
                     {
@@ -51,7 +51,7 @@
                         </p>
                     }
                 </div>
-                <div id="menu1" class="tab-pane fade">
+                <div id="kpi" class="tab-pane fade">
                     @Html.Partial("_chart")
                 </div>
             </div>
