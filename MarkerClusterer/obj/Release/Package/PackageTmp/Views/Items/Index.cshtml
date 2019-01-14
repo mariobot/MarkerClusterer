@@ -1,0 +1,61 @@
+﻿@model IEnumerable<MarkerClusterer.Models.Item>
+
+@{
+    ViewBag.Title = "Lista de Nodos";
+}
+
+<p>
+    <a class="btn" href="@Url.Action("Create","Items")">Crear Nodo</a>    
+</p>
+<table class="table table-responsive table-bordered table-striped">
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Tipo Nodo
+        </th>
+        <th>
+            ParentId
+        </th>
+        <th>
+            Longitud
+        </th>
+        <th>
+            Latitud
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nodo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParentId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Latitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Longitude)
+        </td>
+        <td class="text-center">
+            @Html.ActionLink("Editar", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.id }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

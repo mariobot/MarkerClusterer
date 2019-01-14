@@ -1,0 +1,134 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Charts</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.bundle.min.js"></script>
+    <script>
+
+            var barChartData = {
+                    labels: ['Petroleo','Agua','Gas'],
+                    datasets: [{
+                        label: '',
+                        backgroundColor: [
+                            "#f990a7",
+                            "#aad2ed",
+                            "#9966FF",
+                            "#99e5e5",
+                            "#f7bd83",
+                        ],
+                        borderWidth: 1,
+                        data: [
+                        '100','200','210'
+                        ]
+                    },{
+                        label: '',
+                        backgroundColor: [
+                            "#f990a7",
+                            "#aad2ed",
+                            "#9966FF",
+                            "#99e5e5",
+                            "#f7bd83",
+                        ],
+                        borderWidth: 1,
+                        data: [
+                        '150', '190','250'
+                        ]
+                    }]
+                };
+
+            var pie = {
+                type: 'pie',
+                data: {
+                    datasets: [{
+                        data: [
+                            '150',
+                            '250',
+                            '280'
+                        ],
+                        backgroundColor: [
+                           "#f990a7",
+                            "#aad2ed",
+                            "#9966FF"
+                        ],
+                        label: 'Produccion'
+                    }],
+                    labels: [
+                        'Petroleo',
+                        'Agua',
+                        'Gas'
+                    ]
+                },
+                options: {
+                    responsive: true
+                }
+            };
+
+            var line = {
+                type: 'line',
+                data: {
+                    labels: ['Ene', 'Feb', 'Mar', 'Abr'],
+                    datasets: [{
+                        label: 'Produccion',
+                        backgroundColor:[
+                           "#f990a7",
+                            "#aad2ed",
+                            "#9966FF"
+                        ],
+                        data: [
+                            1020,500,160,2555
+                        ],
+                        fill: true,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    title: {
+                        display: true,
+                        text: ''
+                    }
+                }
+            };
+
+                window.onload = function () {
+                    var ctx1 = document.getElementById("barcanvas").getContext("2d");
+                    var ctx2 = document.getElementById("piecanvas").getContext("2d");
+                    var ctx3 = document.getElementById("linecanvas").getContext("2d");
+                    window.myPie = new Chart(ctx2, pie);
+                    window.myLine = new Chart(ctx3, line);
+                    window.myBar = new Chart(ctx1,
+                        {
+                            type: 'bar',
+                            data: barChartData,
+                            options:
+                                {
+                                    title:
+                                    {
+                                        display: true,
+                                        text: "Producciona Planeada"
+                                    },
+                                    responsive: true,
+                                    maintainAspectRatio: true
+                                }
+                        });
+                }
+    </script>
+</head>
+<body>
+    <div style="text-align: center">
+        <canvas id="barcanvas"></canvas>
+        <hr />
+        <canvas id="piecanvas"></canvas>
+        <hr />
+        <canvas id="linecanvas"></canvas>
+    </div>
+    <div style="text-align: center">
+        <hr />
+        Disclaimer: < La informacion suministrada aqui es de prueba >
+    </div>
+</body>
+</html>  

@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontera Energy | Indicadores MIA</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <link href="~/Content/toastr.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/toastr.min.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-fixed-top navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Frontera Energy", "Navigation", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="@Url.Action("Navigation","Home",new { id = 3 })">Home</a></li>
+
+                    <li role="presentation" class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            Gestionar Nodos <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("Create","Items")">Adicionar Nodo</a></li>
+                            <li><a href="@Url.Action("Index","Items")">Lista de Nodos</a></li>
+                            <li><a href="@Url.Action("Menu","Home", new { id = 3 })">Ver MENU</a></li>
+                            <li><a href="@Url.Action("GoogleMaps","Home")">Nodos en Google Maps</a></li>
+                        </ul>
+                    </li>
+
+                    <li role="presentation" class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            Configuracion <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("Reports","Configuration")" >Gestion de Reportes</a></li>
+                            <li><a href="@Url.Action("ParamsReports","Configuration")">Parametrizacion de Reportes</a></li>
+                            <li><a href="@Url.Action("Alarms","Configuration")">Gestion de Alarmas</a></li>
+                            <li><a href="@Url.Action("Users","Configuration")">Gestion de Usuarios</a></li>
+                            <li><a href="@Url.Action("Documents","Configuration")">Gestion de Documentos</a></li>
+                        </ul>
+                    </li>
+
+                    <li role="presentation" class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            Notificaciones <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Panel de Notificaciones", "Index", "Notification")</li>
+                            <li>@Html.ActionLink("Notificacion de Error", "Error","Notification")</li>
+                            <li>@Html.ActionLink("Notificacion Exitosa", "Success", "Notification")</li>
+                            <li>@Html.ActionLink("Notificacion de Informacion", "Info", "Notification")</li>
+                            <li>@Html.ActionLink("Notificacion de Advertencia", "Warning", "Notification")</li>
+                            <li>@Html.ActionLink("Todas las notificaciones", "AllToast", "Notification")</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>    
+    <div class="container body-content">
+        <div class="row">
+            <div><br /><br /><br /></div>
+        </div>
+        <div class="row">
+            @RenderBody()
+        </div>
+        @Html.Partial("_Toastr")
+    </div>
+    <hr />
+    <footer>
+        <center>
+            <p>&copy; @DateTime.Now.Year - Developed by - <a href="https://www.indracompany.com/" target="_blank">Indra Company</a></p>
+        </center>
+    </footer>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

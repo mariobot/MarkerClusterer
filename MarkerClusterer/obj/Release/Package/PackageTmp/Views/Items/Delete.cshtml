@@ -1,0 +1,58 @@
+﻿@model MarkerClusterer.Models.Item
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Esta seguro de eliminar esto?</h3>
+<div>    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nombre
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            Tipo Nodo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nodo)
+        </dd>
+
+        <dt>
+            Latitud
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Latitude)
+        </dd>
+
+        <dt>
+            Longitud
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Longitude)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" />
+            <a class="btn btn-danger" href="@Url.Action("Index","Items")">Volver</a>            
+        </div>
+        <div>
+            <text class="text-danger">@TempData["Error"]</text>
+        </div>
+    }
+</div>

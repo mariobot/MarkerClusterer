@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    .clickable {
+        cursor: pointer;
+    }
+
+    .right-col {
+        text-align: center;
+    }
+</style>
+<script>
+    $(document).ready(function () {
+        $('.deliverable-infos').hide();
+        $('.dropdown-deliverable').on('click', function (e) {
+            console.log("dropdown toggled!");
+            e.preventDefault();
+            e.stopPropagation();
+            //get targeted element via data-for attribute
+            var dataFor = $(this).data('for');
+            var idFor = $(dataFor);
+            idFor.slideToggle();
+        });
+    });
+</script>
+<div class="row">
+    <div class="container-fluid">
+        <div class="table-responsive">
+            <table class="table table-condensed">
+                <thead>
+                    <tr>
+                        <th>Tipo Mensaje</th>
+                        <th>Descripcion</th>
+                        <th>Fecha</th>
+                        <th>Estado</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="clickable warning dropdown-deliverable" data-for="#details_1">
+                        <td>Error</td>
+                        <td>No se alcanzo el limite de produccion</td>
+                        <td>Enero 4, 2019</td>
+                        <td><span class="label label-danger">Error</span></td>
+                        <td>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-danger" style="width: 40%;">
+                                    40%
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr style="padding:0">
+                        <td style="padding:0"></td>
+                        <td colspan=2 style="padding:0px;">
+                            <div class="deliverable-infos" id="details_1">
+                                <table class="table table-condensed table-user-content" id="hidden_table_1">
+                                    <tbody>
+                                        <tr>
+                                            <td>Dia de produccion :</td>
+                                            <td class="right-col">Enero 4, 2019</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Produccion :</td>
+                                            <td class="right-col">5000 b</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Diferencia :</td>
+                                            <td class="right-col">500 b</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                        <td style="padding:0"></td>
+                        <td style="padding:0"></td>
+                    </tr>
+                    <tr class="clickable warning dropdown-deliverable" data-for="#details_2">
+                        <td>Advertencia</td>
+                        <td>Limite en produccion de gas</td>
+                        <td>Enero 9, 2019</td>
+                        <td><span class="label label-warning">Advertencia</span></td>
+                        <td>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-success" style="width: 100%;">
+                                    100%
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr style="padding:0">
+                        <td style="padding:0"></td>
+                        <td colspan=2 style="padding:0">
+                            <div class="deliverable-infos" id="details_2">
+                                <table class="table table-condensed table-user-content" id="hidden_table_2">
+                                    <tbody>
+                                        <tr>
+                                            <td>Fecha:</td>
+                                            <td class="right-col">Enero 9, 2019</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Produccion:</td>
+                                            <td class="right-col">4500 b</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Limite:</td>
+                                            <td class="right-col">4450 b</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                        <td style="padding:0"></td>
+                        <td style="padding:0"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+

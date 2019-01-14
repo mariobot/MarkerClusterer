@@ -147,6 +147,7 @@
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
     <Content Include="App_Code\ToastrBuilder.cshtml" />
+    <None Include="Properties\PublishProfiles\Marker - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -177,19 +178,6 @@
     <Compile Include="Helpers\Toastr.cs" />
     <Compile Include="Helpers\ToastType.cs" />
     <Compile Include="Helpers\TreeView.cs" />
-    <Compile Include="Migrations\201812131548193_update values.cs" />
-    <Compile Include="Migrations\201812131548193_update values.Designer.cs">
-      <DependentUpon>201812131548193_update values.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201812131609415_update items.cs" />
-    <Compile Include="Migrations\201812131609415_update items.Designer.cs">
-      <DependentUpon>201812131609415_update items.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201812131943536_Add ParentId.cs" />
-    <Compile Include="Migrations\201812131943536_Add ParentId.Designer.cs">
-      <DependentUpon>201812131943536_Add ParentId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DatabaseContext.cs" />
     <Compile Include="Models\Indicators.cs" />
     <Compile Include="Models\Item.cs" />
@@ -231,17 +219,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201812131548193_update values.resx">
-      <DependentUpon>201812131548193_update values.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201812131609415_update items.resx">
-      <DependentUpon>201812131609415_update items.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201812131943536_Add ParentId.resx">
-      <DependentUpon>201812131943536_Add ParentId.cs</DependentUpon>
-    </EmbeddedResource>
+    <Folder Include="Migrations\" />
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
