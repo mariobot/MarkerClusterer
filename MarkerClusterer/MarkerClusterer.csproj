@@ -164,6 +164,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ConfigurationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ItemsController.cs" />
     <Compile Include="Controllers\NotificationController.cs" />
@@ -217,6 +218,11 @@
     <Content Include="Views\Home\_chart.cshtml" />
     <Content Include="Views\Shared\_Toastr.cshtml" />
     <Content Include="Views\Notification\Index.cshtml" />
+    <Content Include="Views\Configuration\Documents.cshtml" />
+    <Content Include="Views\Configuration\Users.cshtml" />
+    <Content Include="Views\Configuration\Alarms.cshtml" />
+    <Content Include="Views\Configuration\ParamsReports.cshtml" />
+    <Content Include="Views\Configuration\Reports.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

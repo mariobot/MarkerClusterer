@@ -1,10 +1,10 @@
 ﻿@model MarkerClusterer.Models.Item
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Editar Nodo";
 }
 
-<h2>Edit</h2>
+<h2>Editar Nodo</h2>
 
 
 @using (Html.BeginForm())
@@ -17,7 +17,7 @@
     @Html.HiddenFor(model => model.id)
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.Label("Nombre", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
@@ -25,7 +25,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Nodo, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.Label("Tipo de nodo", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EnumDropDownListFor(model => model.Nodo, htmlAttributes: new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Nodo, "", new { @class = "text-danger" })
@@ -33,7 +33,7 @@
     </div>
 
     <div class="form-group">
-        <label class="control-label col-md-2">Item Parent</label>
+        <label class="control-label col-md-2">Nodo Padre</label>
         <div class="col-lg-10">
             @Html.DropDownListFor(x => x.ParentId, (SelectList)ViewBag.Parents, htmlAttributes: new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Nodo, "", new { @class = "text-danger" })
@@ -41,7 +41,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Latitude, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.Label("Latitud", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.Latitude, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Latitude, "", new { @class = "text-danger" })
@@ -49,7 +49,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Longitude, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.Label("Longitud", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.Longitude, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Longitude, "", new { @class = "text-danger" })
@@ -58,8 +58,8 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-default" />
-            <a class="btn btn-danger" href="@Url.Action("Index","Items")">Back</a>
+            <input type="submit" value="Guardar" class="btn btn-default" />
+            <a class="btn btn-danger" href="@Url.Action("Index","Items")">Volver</a>
         </div>
     </div>
 </div>

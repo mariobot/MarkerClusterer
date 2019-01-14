@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<MarkerClusterer.Models.Item>
 
 @{
-    ViewBag.Title = "List Items";
+    ViewBag.Title = "Lista de Nodos";
 }
 
 <p>
-    <a class="btn" href="@Url.Action("Create","Items")">Create Item</a>    
+    <a class="btn" href="@Url.Action("Create","Items")">Crear Nodo</a>    
 </p>
 <table class="table table-responsive table-bordered table-striped">
     <tr>
@@ -13,19 +13,19 @@
             Id
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            Nombre
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Nodo)
+            Tipo Nodo
         </th>
         <th>
             ParentId
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Latitude)
+            Longitud
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Longitude)
+            Latitud
         </th>
         <th></th>
     </tr>
@@ -50,10 +50,10 @@
         <td>
             @Html.DisplayFor(modelItem => item.Longitude)
         </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        <td class="text-center">
+            @Html.ActionLink("Editar", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.id }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.id })
         </td>
     </tr>
 }

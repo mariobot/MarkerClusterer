@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "Alarms";
+}
+
+<form class="form-horizontal">
+    <fieldset>
+        <!-- Form Name -->
+        <legend>Configuracion - Alarmas</legend>
+        <!-- Multiple Checkboxes -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="checkboxes">Habilitar alarmas</label>
+            <div class="col-md-4">
+                <div class="checkbox">
+                    <label for="checkboxes-0">
+                        <input type="checkbox" name="checkboxes" id="checkboxes-0" value="1">
+                        Mostrar Alarmas
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label for="checkboxes-1">
+                        <input type="checkbox" name="checkboxes" id="checkboxes-1" value="2">
+                        Deshabilitar Alarmas
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- Appended Input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="session-length">Ubicacion Mensaje</label>
+            <div class="col-md-2">
+                <div class="input-group">
+                    <input id="session-length" name="session-length" class="form-control" placeholder="Arriba" type="text" required="">
+                    <span class="input-group-addon"></span>
+                </div>
+                <p class="help-block">Ubicacion de los mensajes en pantalla</p>
+            </div>
+        </div>
+        <!-- Appended Input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="delay-event">Tiempo de despliegue</label>
+            <div class="col-md-2">
+                <div class="input-group">
+                    <input id="delay-event" name="delay-event" class="form-control" placeholder="5" type="text">
+                    <span class="input-group-addon">seg</span>
+                </div>
+                <p class="help-block">Tiempo de despliegue de mensajes en pantalla</p>
+            </div>
+        </div>
+        <!-- Appended Input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="checkboxes">Nuevos mensajes</label>
+            <div class="col-md-4">
+                <div class="checkbox">
+                    <label for="checkboxes-0">
+                        <input type="checkbox" name="checkboxes" id="checkboxes-0" value="1">
+                        Arriba
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- Button -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="button-calculate"></label>
+            <div class="col-md-4">
+                <button id="button-calculate" name="button-calculate" class="btn btn-primary">Guardar</button>
+            </div>
+        </div>
+    </fieldset>
+</form>
+

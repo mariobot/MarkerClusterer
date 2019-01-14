@@ -9,11 +9,11 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Create Item</h4>
+        <h4>Adicionar Nodo</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Nombre", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
@@ -21,7 +21,7 @@
         </div>
 
         <div class="form-group">
-            @Html.Label("Node", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Tipo de Nodo", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EnumDropDownListFor(model => model.Nodo, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Nodo, "", new { @class = "text-danger" })
@@ -29,7 +29,7 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2">Item Parent</label>
+            <label class="control-label col-md-2">Nodo Padre</label>
             <div class="col-lg-10">
                 @Html.DropDownListFor(x => x.ParentId, (SelectList)ViewBag.Parents, htmlAttributes: new { @class = "form-control" })                
                 @Html.ValidationMessageFor(model => model.Nodo, "", new { @class = "text-danger" })
@@ -37,7 +37,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Latitude, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Latitud", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Latitude, new { htmlAttributes = new { @class = "form-control", @id = "lat" } })
                 @Html.ValidationMessageFor(model => model.Latitude, "", new { @class = "text-danger" })
@@ -45,7 +45,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Longitude, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Longitud", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Longitude, new { htmlAttributes = new { @class = "form-control", @id = "lng" } })
                 @Html.ValidationMessageFor(model => model.Longitude, "", new { @class = "text-danger" })
@@ -54,8 +54,8 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-                <a class="btn btn-danger" href="@Url.Action("Index","Items")">Back</a>
+                <input type="submit" value="Crear" class="btn btn-default" />
+                <a class="btn btn-danger" href="@Url.Action("Index","Items")">Volver</a>
             </div>
         </div>
     </div>
