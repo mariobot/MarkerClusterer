@@ -3,5 +3,88 @@
     ViewBag.Title = "Reports";
 }
 
-<h2>Reports</h2>
+<form class="form-horizontal">
+    <fieldset>
+        <!-- Form Name -->
+        <legend>Configuracion - Reportes</legend>
+        <!-- Multiple Checkboxes -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="checkboxes">Permitir exportar</label>
+            <div class="col-md-4">
+                <div class="checkbox">
+                    <label for="checkboxes-0">
+                        <input type="checkbox" name="checkboxes" id="checkboxes-0" value="1">
+                        Todos los reporte
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label for="checkboxes-1">
+                        <input type="checkbox" name="checkboxes" id="checkboxes-1" value="2">
+                        Reportes basicos
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- Form Name -->
+        <legend>Desplegar Reportes PI Visio</legend>
+        <!-- Multiple Checkboxes -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="checkboxes">Permitir ver</label>
+            <div class="col-md-4">
+                <div class="checkbox">
+                    <label for="checkboxes-3">
+                        <input type="checkbox" name="checkboxes" id="checkboxes-3" value="1">
+                        Permitir
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label for="checkboxes-4">
+                        <input type="checkbox" name="checkboxes" id="checkboxes-4" value="2">
+                        No Permitir
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- Appended Input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="session-length">Tamaño</label>
+            <div class="col-md-2">
+                <div class="input-group">
+                    <input id="session-length" name="session-length" class="form-control" placeholder="500" type="text" required="">
+                    <span class="input-group-addon">kb</span>
+                </div>
+                <p class="help-block">Tamaño maximo del archivo</p>
+            </div>
+        </div>
+        <!-- Appended Input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="delay-event">Nombre del Archivo</label>
+            <div class="col-md-2">
+                <div class="input-group">
+                    <input id="delay-event" name="delay-event" class="form-control" placeholder="Reporte" type="text">
+                    <span class="input-group-addon">.xls</span>
+                </div>
+                <p class="help-block">Nombre del archivo al momento de la descarga</p>
+            </div>
+        </div>
+        <!-- Appended Input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="send-frequency">Fecha de reporte</label>
+            <div class="col-md-2">
+                <div class="input-group">
+                    <input id="send-frequency" name="send-frequency" class="form-control" placeholder="05/01/2019" type="text">
+                    <span class="input-group-addon">Fecha</span>
+                </div>
+                <p class="help-block">Habilitar una fecha diferente</p>
+            </div>
+        </div>
+        <!-- Button -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="button-calculate"></label>
+            <div class="col-md-4">
+                <button id="button-calculate" name="button-calculate" class="btn btn-primary">Guardar</button>
+            </div>
+        </div>
+    </fieldset>
+</form>
 
