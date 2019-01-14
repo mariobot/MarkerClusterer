@@ -161,31 +161,6 @@ namespace MarkerClusterer.Controllers
 
             Helpers.Excel.Export.ToExcel(Response, _list);
         }
-
-        public ActionResult AllToast() {
-            this.AddToastMessage("MENSAJE DE ERROR", "Mensaje de error", ToastType.Error);
-            this.AddToastMessage("Mensaje Informativo", "Mensaje informativo", ToastType.Info);
-            this.AddToastMessage("Mensaje Exitoso", "Mensaje exitoso", ToastType.Success);
-            this.AddToastMessage("Mensaje de Advertencia", "Mensaje de Advertencia", ToastType.Warning);
-            return RedirectToAction("Navigation");
-        }
-        public ActionResult Error() {
-            this.AddToastMessage("MENSAJE DE ERROR", "Mensaje de error", ToastType.Error);
-            return RedirectToAction("Navigation");
-        }
-        public ActionResult Info() {
-            this.AddToastMessage("Mensaje Informativo", "Mensaje informativo", ToastType.Info);
-            return RedirectToAction("Navigation");
-        }
-        public ActionResult Success() {
-            this.AddToastMessage("Mensaje Exitoso", "Mensaje exitoso", ToastType.Success);
-            return RedirectToAction("Navigation");
-        }
-        public ActionResult Warning() {
-            this.AddToastMessage("Mensaje de Advertencia", "Mensaje de Advertencia", ToastType.Warning);
-            return RedirectToAction("Navigation");
-        }
-        
     }
 
     public static class ControllerExtensions
