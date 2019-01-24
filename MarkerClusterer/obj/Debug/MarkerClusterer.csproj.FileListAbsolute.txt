@@ -18,10 +18,6 @@ C:\Users\mabotero\source\repos\MarkerClusterer\MarkerClusterer\bin\System.Web.We
 C:\Users\mabotero\source\repos\MarkerClusterer\MarkerClusterer\bin\System.Web.Webpages.Razor.xml
 C:\Users\mabotero\source\repos\MarkerClusterer\MarkerClusterer\bin\System.Web.Helpers.xml
 C:\Users\mabotero\source\repos\MarkerClusterer\MarkerClusterer\bin\System.Web.Mvc.xml
-C:\Users\mabotero\source\repos\MarkerClusterer\MarkerClusterer\obj\Debug\MarkerClusterer.Migrations.updatevalues.resources
-C:\Users\mabotero\source\repos\MarkerClusterer\MarkerClusterer\obj\Debug\MarkerClusterer.Migrations.updateitems.resources
-C:\Users\mabotero\source\repos\MarkerClusterer\MarkerClusterer\obj\Debug\MarkerClusterer.Migrations.AddParentId.resources
-C:\Users\mabotero\source\repos\MarkerClusterer\MarkerClusterer\obj\Debug\MarkerClusterer.csproj.GenerateResource.cache
 C:\Users\mabotero\source\repos\MarkerClusterer\MarkerClusterer\obj\Debug\MarkerClusterer.csproj.CoreCompileInputs.cache
 C:\Users\mabotero\source\repos\MarkerClusterer\MarkerClusterer\obj\Debug\MarkerClusterer.csproj.CopyComplete
 C:\Users\mabotero\source\repos\MarkerClusterer\MarkerClusterer\obj\Debug\MarkerClusterer.dll
